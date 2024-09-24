@@ -1,21 +1,16 @@
 package org.example.lesson_1
 
+const val SECONDS_IN_HOUR = 3600
+const val SECONDS_IN_MINUTE = 60
+
 fun main() {
 
-    var secondsInSpace = 123023543
-    val hoursInSpace = secondsInSpace/3600
-    val secondsInSpaceAfterHours = secondsInSpace - hoursInSpace*3600
-    val minutesInSpace = secondsInSpaceAfterHours/60
-    val secondsInSpaceAfterMinutes = secondsInSpaceAfterHours - minutesInSpace*60
+    val secondsInSpace = 6480
+    val hoursInSpace = secondsInSpace / SECONDS_IN_HOUR
+    val secondsInSpaceAfterHours = secondsInSpace - hoursInSpace * SECONDS_IN_HOUR
+    val minutesInSpace = secondsInSpaceAfterHours / SECONDS_IN_MINUTE
+    val secondsInSpaceAfterMinutes = secondsInSpaceAfterHours - minutesInSpace * SECONDS_IN_MINUTE
 
-    print("${numFormatter(hoursInSpace)}:${numFormatter(minutesInSpace)}:${numFormatter(secondsInSpaceAfterMinutes)}")
+    print("${String.format("%02d", hoursInSpace)}:${String.format("%02d", minutesInSpace)}:${String.format("%02d", secondsInSpaceAfterMinutes)}")
 
-}
-
-fun numFormatter(num: Int): String {
-    val formattedNum: String
-    if (num.toString().length < 2) {
-        formattedNum = "0$num"
-    } else formattedNum = "$num"
-    return formattedNum
 }
