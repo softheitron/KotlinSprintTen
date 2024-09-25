@@ -6,8 +6,8 @@ fun main() {
     val departureMinutes = 47
     val timeToArriveInMinutes = 457
 
-    var arriveHour = departureHour + timeToArriveInMinutes/60
-    val restMinutes = timeToArriveInMinutes - (timeToArriveInMinutes/60 * 60)
+    var arriveHour = departureHour + timeToArriveInMinutes / 60
+    val restMinutes = timeToArriveInMinutes - (timeToArriveInMinutes / 60 * 60)
     var arriveMinute = departureMinutes + restMinutes
 
     if (arriveMinute > 60) {
