@@ -4,9 +4,9 @@ fun main() {
 
     val moveInformation = "D2-D4;0"
 
-    val splitMoveInformation = moveInformation.split(";")
-    val moveFrom = splitMoveInformation.first().split("-").first()
-    val moveTo = splitMoveInformation.first().split("-").last()
+    val splitMoveInformation = moveInformation.split("-", ";")
+    val moveFrom = splitMoveInformation.first()
+    val moveTo = splitMoveInformation[1]
     val moveNumber = splitMoveInformation.last()
 
     val parsedMoveInformation = """
