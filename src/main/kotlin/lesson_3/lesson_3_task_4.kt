@@ -4,18 +4,14 @@ fun main() {
 
     var moveFrom = "E2"
     var moveTo = "E4"
-    var moveNumber = "1st"
+    var moveNumber = "1"
 
-    var moveInformation = "From $moveFrom, to $moveTo, $moveNumber move"
-
-    println(moveInformation)
+    println("[$moveFrom-$moveTo;$moveNumber]")
 
     moveFrom = "D2"
     moveTo = "D3"
-    moveNumber = "2nd"
+    moveNumber = "2"
 
-    moveInformation = "From $moveFrom, to $moveTo, $moveNumber move"
-
-    println(moveInformation)
+    println("[$moveFrom-$moveTo;$moveNumber]")
 
 }
