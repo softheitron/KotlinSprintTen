@@ -6,13 +6,13 @@ const val AVERAGE_VOLUME_MAX = 100
 
 fun main() {
 
-    var cargoWeight = 20
+    var cargoWeight = 50
     var cargoVolume = 80
 
     println(
         "Груз с весом ${cargoWeight}кг и объемом ${cargoVolume}л соответствует категории - \"Average\":"
         +
-        "${((cargoWeight > AVERAGE_WEIGHT_MIN) and (cargoWeight <= AVERAGE_WEIGHT_MAX)) and (cargoVolume < AVERAGE_VOLUME_MAX)}"
+        "${((cargoWeight > AVERAGE_WEIGHT_MIN) && (cargoWeight <= AVERAGE_WEIGHT_MAX)) && (cargoVolume < AVERAGE_VOLUME_MAX)}"
     )
 
     cargoWeight = 50
@@ -21,7 +21,7 @@ fun main() {
     println(
         "Груз с весом ${cargoWeight}кг и объемом ${cargoVolume}л соответствует категории - \"Average\":"
                 +
-                "${((cargoWeight > AVERAGE_WEIGHT_MIN) and (cargoWeight <= AVERAGE_WEIGHT_MAX)) and (cargoVolume < AVERAGE_VOLUME_MAX)}"
+                "${((cargoWeight > AVERAGE_WEIGHT_MIN) && (cargoWeight <= AVERAGE_WEIGHT_MAX)) && (cargoVolume < AVERAGE_VOLUME_MAX)}"
     )
 
 }
