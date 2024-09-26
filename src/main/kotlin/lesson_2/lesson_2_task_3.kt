@@ -7,7 +7,7 @@ fun main() {
 
     val departureHour = 9
     val departureMinutes = 47
-    val timeToArriveInMinutes = 1290
+    val timeToArriveInMinutes = 457
 
     val restMinutes = timeToArriveInMinutes % SECONDS_IN_MINUTE
     val hoursToArrive = (timeToArriveInMinutes / SECONDS_IN_MINUTE) + ((departureMinutes + restMinutes) / SECONDS_IN_MINUTE)
