@@ -7,8 +7,8 @@ const val LEG_STRING = "Упражнение для ног: "
 
 fun main() {
 
-    val trainingDay = 6
-    val isCoreAndArmDay = trainingDay % 2 == 0
+    val trainingDay = 5
+    val isCoreAndArmDay = trainingDay % 2 != 0
     val isLegAndBackDay = !isCoreAndArmDay
 
     println(
