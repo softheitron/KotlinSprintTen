@@ -57,7 +57,7 @@ fun main() {
                         provisionQuantityInput > REQUIRED_PROVISION)
 
     print(
-        when(isShipReadyToSail) {
+        when (isShipReadyToSail) {
             true -> "Все условия соблюдены. Корбаль может отправляться в путь!"
             false -> "Условия не соблюдены! Корабль остается в гавани..."
         }
