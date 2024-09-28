@@ -24,7 +24,7 @@ fun main() {
     val thirdNumInput = readln().toInt()
     val userNumList = listOf(firstNumInput, secondNumInput, thirdNumInput)
 
-    val numberOfMatches = winNumList.intersect(userNumList).size
+    val numberOfMatches = winNumList.intersect(userNumList.toSet()).size
 
     println(
         "Выбранные программой числа: $firstNumber, $secondNumber, $thirdNumber\n" +
