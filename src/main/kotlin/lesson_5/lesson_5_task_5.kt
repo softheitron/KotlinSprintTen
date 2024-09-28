@@ -1,7 +1,5 @@
 package org.example.lesson_5
 
-import kotlin.random.Random
-
 fun main() {
 
     println(
@@ -12,9 +10,9 @@ fun main() {
                 "Если отгадать одно из трех чисел, вы получите утешительный приз!"
     )
 
-    val firstNumber = Random.nextInt(0, 43)
-    val secondNumber = Random.nextInt(0, 43)
-    val thirdNumber = Random.nextInt(0, 43)
+    val firstNumber = (0..42).random()
+    val secondNumber = (0..42).random()
+    val thirdNumber = (0..42).random()
     val winNumList = listOf(firstNumber, secondNumber, thirdNumber)
     println("Числа были сгенерированы!\nУдачи!")
 
@@ -37,6 +35,7 @@ fun main() {
         1 -> print("Вы выиграли утешительный приз!")
         2 -> print("Вы выиграли крупный приз!")
         3 -> print("Невероятное везение! Вы выиграли ДЖЕКПОТ!")
+        else -> print("Неудача!")
     }
 
 }
