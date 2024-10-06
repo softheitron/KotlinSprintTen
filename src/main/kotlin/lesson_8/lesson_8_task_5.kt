@@ -12,7 +12,7 @@ fun main() {
         if (it < (ingredientsAmount - 1)) {
             ingredientToAdd += ", "
         }
-        ingredientToAdd
+        ingredientToAdd.lowercase()
     }
 
     print("Созданный список ингредиентов: ")
