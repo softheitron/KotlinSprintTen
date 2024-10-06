@@ -3,14 +3,14 @@ package org.example.lesson_7
 fun main() {
 
     var passwordString = ""
+    val passwordChar = ('a'..'z')
+    val passwordNum = (1..9)
 
     for (i in 1..6) {
         if (i % 2 != 0) {
-            val passwordChar = ('a'..'z').random()
-            passwordString += passwordChar
+            passwordString += passwordChar.random()
         } else {
-            val passwordNum = (1..9).random()
-            passwordString += passwordNum
+            passwordString += passwordNum.random()
         }
     }
 
