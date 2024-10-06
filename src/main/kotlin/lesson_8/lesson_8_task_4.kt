@@ -10,12 +10,12 @@ fun main() {
 
     print("\nВведите ингредиент для замены: ")
     val changeIngredientInput = readln()
+    val replacedIngredientIndex = recipeIngredients.indexOf(changeIngredientInput.lowercase())
 
-    if (recipeIngredients.contains(changeIngredientInput.lowercase())) {
+    if (replacedIngredientIndex != -1) {
         print("Введите название игредиента для замены: ")
         val newIngredientInput = readln()
-        val replacedIngredientIndex = recipeIngredients.indexOf(changeIngredientInput.lowercase())
-        recipeIngredients[replacedIngredientIndex] = newIngredientInput
+        recipeIngredients[replacedIngredientIndex] = newIngredientInput.lowercase()
     } else {
         println("Нет такого ингредиента в рецепте")
         return
