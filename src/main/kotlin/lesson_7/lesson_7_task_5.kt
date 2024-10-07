@@ -28,8 +28,6 @@ fun main() {
         generatedPasswordArray.add(allSymbolsList.random())
     }
 
-    generatedPasswordArray.shuffled().forEach {
-        print(it)
-    }
+    println(generatedPasswordArray.shuffled().joinToString(""))
 
 }
