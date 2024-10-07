@@ -7,6 +7,10 @@ fun main() {
 
     val listOfIngredients = ingredientsInput.split(", ")
 
-    println(listOfIngredients.sorted())
+    if (listOfIngredients.size == 5) {
+        println(listOfIngredients.sorted())
+    } else {
+        println("Нужно ввести ровно пять ингредиентов!")
+    }
 
 }
