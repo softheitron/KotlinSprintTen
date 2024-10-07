@@ -6,10 +6,10 @@ fun main() {
     val countdownInput = readln().toInt()
 
     for (i in countdownInput downTo 0) {
-        if (i != 0) {
-            println("Осталось секунд: $i")
-            Thread.sleep(1000)
-        } else print("Время вышло!")
+        println("Осталось секунд: $i")
+        Thread.sleep(1000)
     }
+
+    print("Время вышло!")
 
 }
