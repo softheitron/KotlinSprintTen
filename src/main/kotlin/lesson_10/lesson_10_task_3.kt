@@ -5,14 +5,13 @@ fun main() {
     print("Задайте длину пароля: ")
     val passwordLengthInput = readln().toInt()
 
-    println("Сгенерированный пароль: ${passwordGenerator(passwordLengthInput)}")
+    println("Сгенерированный пароль: ${generatePassword(passwordLengthInput)}")
 
 }
 
-fun passwordGenerator(passLength: Int): String {
+fun generatePassword(passLength: Int): String {
     val naturalNumbers = 1..9
-    val specialCharactersList = listOf(
-        "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", " ")
+    val specialCharactersList = ' '..'/'
     var generatedPassword = ""
 
     for (i in 1..passLength) {
