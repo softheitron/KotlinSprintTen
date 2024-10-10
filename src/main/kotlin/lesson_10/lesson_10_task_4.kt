@@ -10,8 +10,8 @@ fun main() {
     var isStillPlaying = true
 
     do {
-        humanDice = randomRollDice()
-        machineDice = randomRollDice()
+        humanDice = rollDice2()
+        machineDice = rollDice2()
         showWhoWon(humanDice, machineDice)
         if (humanDice > machineDice) {
             humanWinsCounter++
@@ -25,7 +25,7 @@ fun main() {
 
 }
 
-fun randomRollDice(): Int = (1..6).random()
+fun rollDice2(): Int = (1..6).random()
 
 fun showWhoWon(humanDice: Int, machineDice: Int) {
     println("Ход человека")
