@@ -9,17 +9,12 @@ fun main() {
     print("Придумайте пароль: ")
     val passwordInput = readln()
 
-     val isDataOk = validateUserDataLength(loginInput, passwordInput)
-
-    if (isDataOk) {
+    if (validateUserDataLength(loginInput, passwordInput)) {
         println("Добро пожаловать!")
     } else println("Логин или пароль недостаточно длинные")
 
 }
 
-fun validateUserDataLength(userLogin: String, userPassword: String): Boolean {
-    return if (userLogin.length < MIN_USER_DATA_LENGTH ||
-        userPassword.length < MIN_USER_DATA_LENGTH) {
-        false
-    } else true
-}
+fun validateUserDataLength(userLogin: String, userPassword: String): Boolean =
+    !(userLogin.length < MIN_USER_DATA_LENGTH ||
+            userPassword.length < MIN_USER_DATA_LENGTH)
