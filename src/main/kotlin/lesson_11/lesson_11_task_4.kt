@@ -13,11 +13,11 @@ class Recipe(
     val name: String,
     val coverPhoto: String,
     val portionAmount: Int,
-    val ingredients: Ingredients,
+    val ingredients: List<Ingredient>,
     val howToCook: List<String>
 )
 
-class Ingredients(
+class Ingredient(
     val name: String,
     val amount: Int,
     val measure: String
