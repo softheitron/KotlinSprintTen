@@ -1,9 +1,6 @@
 package org.example.lesson_12
 
-class DayWeather2(_dayTimeTemp: Int, _nightTimeTemp: Int, _isHavePrecipitation: Boolean) {
-    val dayTimeTemp = _dayTimeTemp
-    val nightTimeTemp = _nightTimeTemp
-    val isHavePrecipitation = _isHavePrecipitation
+class DayWeather2(val dayTimeTemp: Int, val nightTimeTemp: Int, val isHavePrecipitation: Boolean) {
 
     fun showDayWeather() {
         if (isHavePrecipitation) {
@@ -23,9 +20,9 @@ class DayWeather2(_dayTimeTemp: Int, _nightTimeTemp: Int, _isHavePrecipitation: 
 fun main() {
 
     val day1 = DayWeather2(
-        _dayTimeTemp = 12,
-        _nightTimeTemp = -2,
-        _isHavePrecipitation = true
+        dayTimeTemp = 12,
+        nightTimeTemp = -2,
+        isHavePrecipitation = true
     )
 
     day1.showDayWeather()
