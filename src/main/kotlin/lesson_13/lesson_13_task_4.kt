@@ -1,10 +1,10 @@
 package org.example.lesson_13
 
-class Contact4(val name: String, val number: Long, val company: String? = null) {
+class Contact4(val name: String, val number: Long?, val company: String? = null) {
     fun showContactInformation() {
         println(
             "Имя: $name\n" +
-                    "Номер: ${number}\n" +
+                    "Номер: ${number ?: ""}\n" +
                     "Компания: ${company ?: "не указано"}"
         )
     }
@@ -20,11 +20,8 @@ fun main() {
         print("Введите имя контакта: ")
         val nameInput = readln()
         print("Введите номер контакта: ")
-        var numberInput = readln().toLongOrNull()
-        while (numberInput == null) {
-            print("Введен неверный формат номера!\nПопробуйте еще раз: ")
-            numberInput = readln().toLongOrNull()
-        }
+        val numberInput = readln().toLongOrNull()
+        if (numberInput == null) println("Вы не ввели номер, графа номера останется пустой")
         print("Введите название компании: ")
         var companyInput = readlnOrNull()
         if (companyInput?.trim() == "") companyInput = null
