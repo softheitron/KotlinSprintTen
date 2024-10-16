@@ -32,14 +32,14 @@ fun main() {
         Contact3(
             "Vladimir",
             88005553535,
-            "Company Name"
+            "Nameless Company"
         )
     )
 
-    contactList.forEach {
-        if (it.company != null) {
-            println("Название компании: ${it.company}")
-        }
+    contactList.mapNotNull {
+        it.company
+    }.toSet().forEach {
+        println("Название компании: $it")
     }
 
 }
