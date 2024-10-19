@@ -1,11 +1,11 @@
 package org.example.lesson_14
 
-const val PI: Float = 3.14F
+const val PI: Double = 3.14
 
 abstract class Figure(val color: String) {
 
-    abstract fun calculatePerimeter(): Float
-    abstract fun calculateArea() : Float
+    abstract fun calculatePerimeter(): Double
+    abstract fun calculateArea(): Double
 
 }
 
@@ -14,11 +14,11 @@ class Circle(
     val radius: Int,
 ) : Figure(color) {
 
-    override fun calculatePerimeter(): Float {
+    override fun calculatePerimeter(): Double {
         return (2 * PI * radius)
     }
 
-    override fun calculateArea(): Float {
+    override fun calculateArea(): Double {
         return (PI * (radius * radius))
     }
 
@@ -30,12 +30,12 @@ class Rectangle(
     val height: Int,
 ) : Figure(color) {
 
-    override fun calculatePerimeter(): Float {
-        return (2 * (width + height)).toFloat()
+    override fun calculatePerimeter(): Double {
+        return (2 * (width + height)).toDouble()
     }
 
-    override fun calculateArea(): Float {
-        return (width * height).toFloat()
+    override fun calculateArea(): Double {
+        return (width * height).toDouble()
     }
 
 }
@@ -50,8 +50,11 @@ fun main() {
 
     val figureList = listOf(circle1, rectangle1, rectangle2, circle2)
 
-    val blackPiece = figureList.find { it.color == "black" }
+    val blackPerimeterSum = figureList.filter { it.color == "black" }.sumOf { it.calculatePerimeter() }
+    val whiteAreaSum = figureList.filter { it.color == "white" }.sumOf { it.calculateArea() }
 
-    println(blackPiece?.calculateArea())
-
+    println(
+        "Сумма площадей белых фигур: $whiteAreaSum\n" +
+                "Сумма периметров черных фигур: $blackPerimeterSum"
+    )
 }
