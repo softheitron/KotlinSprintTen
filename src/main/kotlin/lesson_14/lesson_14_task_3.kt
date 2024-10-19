@@ -1,6 +1,8 @@
 package org.example.lesson_14
 
 const val PI: Double = 3.14
+const val BLACK_COLOR = "black"
+const val WHITE_COLOR = "white"
 
 abstract class Figure(val color: String) {
 
@@ -42,19 +44,20 @@ class Rectangle(
 
 fun main() {
 
-    val circle1 = Circle("black", 5)
-    val circle2 = Circle("white", 3)
+    val circle1 = Circle(BLACK_COLOR, 5)
+    val circle2 = Circle(WHITE_COLOR, 3)
 
-    val rectangle1 = Rectangle("black", 10, 8)
-    val rectangle2 = Rectangle("white", 6, 3)
+    val rectangle1 = Rectangle(BLACK_COLOR, 10, 8)
+    val rectangle2 = Rectangle(WHITE_COLOR, 6, 3)
 
     val figureList = listOf(circle1, rectangle1, rectangle2, circle2)
 
-    val blackPerimeterSum = figureList.filter { it.color == "black" }.sumOf { it.calculatePerimeter() }
-    val whiteAreaSum = figureList.filter { it.color == "white" }.sumOf { it.calculateArea() }
+    val blackPerimeterSum = figureList.filter { it.color == BLACK_COLOR }.sumOf { it.calculatePerimeter() }
+    val whiteAreaSum = figureList.filter { it.color == WHITE_COLOR }.sumOf { it.calculateArea() }
 
     println(
         "Сумма площадей белых фигур: $whiteAreaSum\n" +
                 "Сумма периметров черных фигур: $blackPerimeterSum"
     )
+
 }
