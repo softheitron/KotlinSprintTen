@@ -1,95 +1,45 @@
 package org.example.lesson_19
 
-enum class Ammunition(val id: Int? = null) {
-    BLUE(1) {
-        override fun showDamage(): String {
-            return "Нанесено 5 урона"
-        }
-    },
-    GREEN(2) {
-        override fun showDamage(): String {
-            return "Нанесено 10 урона"
-        }
-    },
-    RED(3) {
-        override fun showDamage(): String {
-            return "Нанесено 20 урона"
-        }
-    },
-    EMPTY(0) {
-        override fun showDamage(): String {
-            return "Орудие не заряжено"
-        }
-    },
-    ERROR() {
-        override fun showDamage(): String {
-            return "Произошла ошибка!"
-        }
-    };
-
-    abstract fun showDamage(): String
+enum class Ammunition(val id: Int? = null, val damage:Int) {
+    BLUE(1, 5),
+    GREEN(2, 10),
+    RED(3, 20),
 }
 
 class Tank {
 
-    private var currentAmmunition: Ammunition = Ammunition.EMPTY
+    private var currentAmmunition: Ammunition? = null
 
     fun fire() {
-        if (currentAmmunition != Ammunition.EMPTY) {
-            println("Выстрел произведен\n" + currentAmmunition.showDamage())
-        } else println(currentAmmunition.showDamage())
+        if (currentAmmunition != null) {
+            println("Выстрел произведен\nНанесено урона: ${currentAmmunition?.damage}")
+        } else println("Орудие не заряжено")
     }
 
     fun loadAmmunition() {
-        print("Выберите чем зарядить орудие:\n" +
-                "1.Синий(5 урона)\n" +
-                "2.Зеленый(10 урона)\n" +
-                "3.Красный(20 урона)\n" +
-                "0.Ничем не заряжать(текущий патрон остается)\n" +
+        print("Выберите чем зарядить орудие(или Enter что бы ничего не заряжать):\n" +
+                "1.${Ammunition.BLUE.name}(${Ammunition.BLUE.damage} урона)\n" +
+                "2.${Ammunition.GREEN.name}(${Ammunition.GREEN.damage} урона)\n" +
+                "3.${Ammunition.RED.name}(${Ammunition.RED.damage} урона)\n" +
                 "Ваш выбор: ")
         val choseAmmunitionInput = readln().toIntOrNull()
         when(choseAmmunitionInput) {
             Ammunition.BLUE.id -> currentAmmunition = Ammunition.BLUE
             Ammunition.GREEN.id -> currentAmmunition = Ammunition.GREEN
             Ammunition.RED.id -> currentAmmunition = Ammunition.RED
-            Ammunition.EMPTY.id -> {
-                if (isLoaded(currentAmmunition)) {
-                    print("Разрядить или оставить патрон?\n" +
-                            "1.Разрядить\n" +
-                            "2.Оставить\n" +
-                            "0.Назад\n" +
-                            "Ваш выбор: ")
-                    val choseInput = readln()
-                    when(choseInput.trim()) {
-                        "1" -> currentAmmunition = Ammunition.EMPTY
-                        "2" -> return
-                        "0" -> loadAmmunition()
-                        else -> {
-                            println("Неизвестный выбор")
-                            return
-                        }
-                    }
-                }
-            }
-            else -> println(Ammunition.ERROR.showDamage())
+            null -> return
+            else -> println("Неверный ввод")
         }
     }
-    private fun isLoaded(ammunition: Ammunition): Boolean {
-        return ammunition != Ammunition.EMPTY
-    }
+
 }
 
 fun main() {
 
     val tank1 = Tank()
-    val tank2 = Tank()
 
     tank1.fire()
     tank1.loadAmmunition()
     tank1.fire()
-    tank2.loadAmmunition()
-    tank2.fire()
-    tank2.loadAmmunition()
-    tank2.fire()
 
 }
