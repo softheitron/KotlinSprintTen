@@ -1,28 +1,17 @@
 package org.example.lesson_19
 
 enum class Category() {
-    CLOTH {
-        override fun showProductInformation(): String {
-            return "Одежда"
-        }
-    },
-    STATIONARY {
-        override fun showProductInformation(): String {
-            return "Канцелярские товары"
-        }
-    },
-    OTHER {
-        override fun showProductInformation(): String {
-            return "Разное"
-        }
-    },
-    ERROR {
-        override fun showProductInformation(): String {
-            return "Несуществующая категория"
-        }
-    };
+    CLOTH,
+    STATIONARY,
+    OTHER;
 
-    abstract fun showProductInformation(): String
+    fun setCategory(): String {
+        return when (this) {
+            CLOTH -> "Одежда"
+            STATIONARY -> "Канцелярские товары"
+            OTHER -> "Разное"
+        }
+    }
 }
 
 class Product(
@@ -34,17 +23,7 @@ class Product(
         println(
             "Номер товара: $id\n" +
             "Имя товара: $name\n" +
-            "Категория: ${setCategory(category)}"
-        )
-    }
-}
-
-fun setCategory(category: Category): String {
-    return when (category) {
-        Category.CLOTH -> category.showProductInformation()
-        Category.STATIONARY -> category.showProductInformation()
-        Category.OTHER -> category.showProductInformation()
-        Category.ERROR -> category.showProductInformation()
+            "Категория: ${category.setCategory()}")
     }
 }
 
