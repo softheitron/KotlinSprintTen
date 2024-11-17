@@ -1,30 +1,49 @@
 package org.example.lesson_18
 
-open class DiceItem {
-
-    open fun rollDice() {}
-
+enum class DiceEdges(val diceName: String) {
+    TETRA("четырехгранник"),
+    HEXA("шестигранник"),
+    OCTA("восьмигранник");
 }
 
-class DiceFour: DiceItem() {
-    override fun rollDice() {
-        val randomDice = (1..4).random()
-        println("Вы кинули четырехгранный кубик\nВыпало: $randomDice")
+fun setDiceName(edges: Int): String {
+    return when(edges) {
+        4 -> DiceEdges.TETRA.diceName
+        6 -> DiceEdges.HEXA.diceName
+        8 -> DiceEdges.OCTA.diceName
+        else -> throw IllegalArgumentException("Неизвестное количество граней")
     }
 }
 
-class DiceSix: DiceItem() {
-    override fun rollDice() {
-        val randomDice = (1..6).random()
-        println("Вы кинули шестигранный кубик\nВыпало: $randomDice")
+abstract class DiceItem {
+
+    abstract val edges: Int
+    abstract val diceRange: IntRange
+    abstract val diceEdgesName: String
+
+    open fun rollDice(edges: Int) {
+        val randomDice = diceRange.random()
+        println("Вы бросили $diceEdgesName кубик. Выпало: $randomDice")
     }
+
 }
 
-class DiceEight: DiceItem() {
-    override fun rollDice() {
-        val randomDice = (1..8).random()
-        println("Вы кинули восьмигранный кубик\nВыпало: $randomDice")
-    }
+class DiceFour : DiceItem() {
+    override val edges = 4
+    override val diceRange = 1..edges
+    override val diceEdgesName = setDiceName(edges)
+}
+
+class DiceSix : DiceItem() {
+    override val edges = 6
+    override val diceRange = 1..edges
+    override val diceEdgesName = setDiceName(edges)
+}
+
+class DiceEight : DiceItem() {
+    override val edges: Int = 8
+    override val diceRange = 1..edges
+    override val diceEdgesName = setDiceName(edges)
 }
 
 fun main() {
@@ -36,7 +55,7 @@ fun main() {
     val allDiceList = listOf<DiceItem>(dice4, dice6, dice8)
 
     allDiceList.forEach {
-        it.rollDice()
+        it.rollDice(it.edges)
     }
 
 }
