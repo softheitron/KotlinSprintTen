@@ -1,59 +1,44 @@
 package org.example.lesson_18
 
-abstract class TamagotchiCharacter {
+abstract class TamagotchiCharacter(val name: String) {
 
     abstract fun eat(): String
 
-    abstract fun sleep(): String
-
-}
-
-class Cat: TamagotchiCharacter() {
-
-    override fun eat(): String {
-        return "Кошка кушает рыбку"
-    }
-
-    override fun sleep(): String {
-        return "Кошка спит"
+    fun sleep(): String {
+        return "$name спит"
     }
 
 }
 
-class Dog: TamagotchiCharacter() {
-
+class Cat(name: String) : TamagotchiCharacter(name) {
     override fun eat(): String {
-        return "Соба грызет кость"
+        return "$name кушает рыбку"
     }
-
-    override fun sleep(): String {
-        return "Собака спит"
-    }
-
 }
 
-class Fox: TamagotchiCharacter() {
-
+class Dog(name: String) : TamagotchiCharacter(name) {
     override fun eat(): String {
-        return "Лиса ест ягоды"
+        return "$name грызет кость"
     }
+}
 
-    override fun sleep(): String {
-        return "Лиса спит"
+class Fox(name: String) : TamagotchiCharacter(name) {
+    override fun eat(): String {
+        return "$name ест ягоды"
     }
-
 }
 
 fun main() {
 
-    val foxChar = Fox()
-    val dogChar = Dog()
-    val catChar = Cat()
+    val foxChar = Fox("Foxy")
+    val dogChar = Dog("Doggy")
+    val catChar = Cat("Catty")
 
     val tamagotchiCharList = listOf<TamagotchiCharacter>(foxChar, dogChar, catChar)
 
     tamagotchiCharList.forEach {
         println(it.eat())
+        println(it.sleep())
     }
 
 }
